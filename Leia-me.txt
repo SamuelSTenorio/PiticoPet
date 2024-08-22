@@ -1,0 +1,1 @@
+Colocar a pasta pitico-pet no hd principal para as imagens funcionarem corretamente.
