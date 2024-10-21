@@ -7,12 +7,13 @@
 <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
     <header>
         <nav>
             <div class="logos">
                 <img src="imagens/LogoPitico.png" alt="Logo Pitico Pet">
-                <a class="logo"><font color="#eaa034">P</font> i t i c o &nbsp P e t</a>
+                <a class="logo"><font color="#eaa034">&nbspP</font> i t i c o &nbsp P e t</a>
             </div> 
             <div class="mobile-menu">
                 <div class="line1"></div>
@@ -22,15 +23,86 @@
             <ul class="nav-list">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="/">Créditos</a></li>
-                <li><a href="/">Tema</a></li>
+
             </ul>
         </nav>
     </header>
     <main>
-        
+        <div class="produtos">
+            <div class="produtos-imagens">
+                <img class = "produto" src="imagens/carrossel/imagem1.png" alt="Promoção">
+                <img class = "produto" src="imagens/carrossel/imagem2.png" alt="Ecológico">
+                <img class = "produto" src="imagens/carrossel/imagem3.png" alt="Estilo">
+                <img class = "produto" src="imagens/carrossel/imagem4.png" alt="Conforto">
+                <img class = "produto" src="imagens/carrossel/imagem5.png" alt="Higiene">
+                <img class = "produto" src="imagens/carrossel/imagem6.png" alt="Segurança">
+            </div>
+            <button class="prev"> &larr;</button>
+            <button class="prox"> &rarr;</button>
     </main>
     <script src="mobile-navbar.js"></script>
 </body>
+
+<script>
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.prox');
+    const carouselImages = document.querySelector('.produtos-imagens');
+    const images = document.querySelectorAll('.produto');
+    const totalImages = images.length;
+
+    let currentIndex = 0; 
+    let isTransitioning = false; 
+
+    const firstImageClone = images[0].cloneNode(true);
+    const lastImageClone = images[totalImages - 2].cloneNode(true);
+
+    carouselImages.appendChild(firstImageClone);
+    carouselImages.insertBefore(lastImageClone, images[0]);
+
+
+    let imageWidth = document.querySelector('.produtos').offsetWidth / 1.7;
+    carouselImages.style.transform = `translateX(-${imageWidth}px)`;
+
+    prevButton.addEventListener('click', () => {
+        if (isTransitioning) return;
+        currentIndex--;
+        updateCarousel();
+    });
+
+    nextButton.addEventListener('click', () => {
+        if (isTransitioning) return;
+        currentIndex++;
+        updateCarousel();
+    });
+
+    window.addEventListener('resize', function() {
+        imageWidth = document.querySelector('.produtos').offsetWidth / 3;
+        updateCarousel(true); 
+    });
+
+    function updateCarousel(resizing = false) {
+        isTransitioning = true;
+        const transitionDuration = resizing ? '0s' : '0.5s';
+        carouselImages.style.transition = `transform ${transitionDuration} ease-in-out`;
+        carouselImages.style.transform = `translateX(-${(currentIndex + 1) * imageWidth}px)`;
+
+        carouselImages.addEventListener('transitionend', () => {
+            isTransitioning = false;
+
+            if (currentIndex < 0) {
+                currentIndex = totalImages - 1;
+                carouselImages.style.transition = 'none';
+                carouselImages.style.transform = `translateX(-${(currentIndex + 1) * imageWidth}px)`;
+            }
+
+            if (currentIndex >= totalImages) {
+                currentIndex = 0;
+                carouselImages.style.transition = 'none';
+                carouselImages.style.transform = `translateX(-${(currentIndex + 1) * imageWidth}px)`;
+            }
+        }, { once: true });
+    }
+</script>
+
 
 </html>
