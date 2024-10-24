@@ -44,64 +44,79 @@
 </body>
 
 <script>
-    const prevButton = document.querySelector('.prev');
-    const nextButton = document.querySelector('.prox');
-    const carouselImages = document.querySelector('.produtos-imagens');
-    const images = document.querySelectorAll('.produto');
-    const totalImages = images.length;
+const prevButton = document.querySelector('.prev');
+const nextButton = document.querySelector('.prox');
+const carouselImages = document.querySelector('.produtos-imagens');
+const images = document.querySelectorAll('.produto');
+const totalImages = images.length;
 
-    let currentIndex = 0; 
-    let isTransitioning = false; 
+let currentIndex = 0;
+let isTransitioning = false;
+let imageWidth = document.querySelector('.produto').clientWidth;
 
-    const firstImageClone = images[0].cloneNode(true);
-    const lastImageClone = images[totalImages - 2].cloneNode(true);
+const firstImageClone = images[0].cloneNode(true);
+const lastImageClone = images[totalImages - 1].cloneNode(true);
 
-    carouselImages.appendChild(firstImageClone);
-    carouselImages.insertBefore(lastImageClone, images[0]);
+carouselImages.appendChild(firstImageClone); 
+carouselImages.insertBefore(lastImageClone, images[0]); 
 
 
-    let imageWidth = document.querySelector('.produtos').offsetWidth / 1.7;
-    carouselImages.style.transform = `translateX(-${imageWidth}px)`;
+window.addEventListener('resize', () => {
+    imageWidth = document.querySelector('.produto').clientWidth;
+    carouselImages.style.transition = 'none';
+    carouselImages.style.transform = `translateX(-${(currentIndex + 1) * imageWidth}px)`;
+});
 
-    prevButton.addEventListener('click', () => {
-        if (isTransitioning) return;
-        currentIndex--;
-        updateCarousel();
-    });
 
-    nextButton.addEventListener('click', () => {
-        if (isTransitioning) return;
-        currentIndex++;
-        updateCarousel();
-    });
+function updateCarousel() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    
+    carouselImages.style.transition = 'transform 0.5s ease-in-out';
+    carouselImages.style.transform = `translateX(-${(currentIndex + 0) * imageWidth}px)`;
+    
+    carouselImages.addEventListener('transitionend', () => {
+        isTransitioning = false;
 
-    window.addEventListener('resize', function() {
-        imageWidth = document.querySelector('.produtos').offsetWidth / 3;
-        updateCarousel(true); 
-    });
 
-    function updateCarousel(resizing = false) {
-        isTransitioning = true;
-        const transitionDuration = resizing ? '0s' : '0.5s';
-        carouselImages.style.transition = `transform ${transitionDuration} ease-in-out`;
-        carouselImages.style.transform = `translateX(-${(currentIndex + 1) * imageWidth}px)`;
+        if (currentIndex === totalImages) {
+            currentIndex = 0;
+            carouselImages.style.transition = 'none'; // Remove a transição para evitar o salto
+            carouselImages.style.transform = `translateX(-${(currentIndex + 0) * imageWidth}px)`;
+        }
+        
+        if (currentIndex === -1) {
+            currentIndex = totalImages;
+            carouselImages.style.transition = 'none'; // Remove a transição para evitar o salto
+            carouselImages.style.transform = `translateX(-${(currentIndex + 2) * imageWidth}px)`;
+        }
+    }, { once: true });
+}
 
-        carouselImages.addEventListener('transitionend', () => {
-            isTransitioning = false;
 
-            if (currentIndex < 0) {
-                currentIndex = totalImages - 1;
-                carouselImages.style.transition = 'none';
-                carouselImages.style.transform = `translateX(-${(currentIndex + 1) * imageWidth}px)`;
-            }
-
-            if (currentIndex >= totalImages) {
-                currentIndex = 0;
-                carouselImages.style.transition = 'none';
-                carouselImages.style.transform = `translateX(-${(currentIndex + 1) * imageWidth}px)`;
-            }
-        }, { once: true });
+nextButton.addEventListener('click', () => {
+    if (isTransitioning) return;
+    currentIndex++;
+    
+    if (currentIndex > totalImages) { 
+        currentIndex = totalImages;
     }
+    
+    updateCarousel();
+});
+
+
+prevButton.addEventListener('click', () => {
+    if (isTransitioning) return;
+    currentIndex--;
+    
+    if (currentIndex < -1) { 
+        currentIndex = -1;
+    }
+    
+    updateCarousel();
+});
+
 </script>
 
 
