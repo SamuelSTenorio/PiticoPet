@@ -1,123 +1,180 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Piticos Pet</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="style.css">
-</head>
+  <title>Piticos Pet</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="scss/variaveis.scss" </head>
 
 
 <body>
-    <header>
-        <nav>
-            <div class="logos">
-                <img src="imagens/LogoPitico.png" alt="Logo Pitico Pet">
-                <a class="logo"><font color="#eaa034">&nbspP</font> i t i c o &nbsp P e t</a>
-            </div> 
-            <div class="mobile-menu">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-            <ul class="nav-list">
-                <li><a href="index.html">Início</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
 
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <div class="produtos">
-            <div class="produtos-imagens">
-                <img class = "produto" src="imagens/carrossel/imagem1.png" alt="Promoção">
-                <img class = "produto" src="imagens/carrossel/imagem2.png" alt="Ecológico">
-                <img class = "produto" src="imagens/carrossel/imagem3.png" alt="Estilo">
-                <img class = "produto" src="imagens/carrossel/imagem4.png" alt="Conforto">
-                <img class = "produto" src="imagens/carrossel/imagem5.png" alt="Higiene">
-                <img class = "produto" src="imagens/carrossel/imagem6.png" alt="Segurança">
-            </div>
-            <button class="prev"> &larr;</button>
-            <button class="prox"> &rarr;</button>
-    </main>
-    <script src="mobile-navbar.js"></script>
-</body>
+  <header>
+    <!--logo e pesquisa-->
+    <nav>
+      <div class="logos">
+        <img src="imagens/LogoPitico.png" alt="Logo Pitico Pet">
+        <a class="logo">
+          <font color="#000000">&nbspP</font> i t i c o &nbsp P e t
+        </a>
+      </div>
+
+      <div class="pesquisa">
+        <p></p>
+        <input type="search">
+
+      </div>
+
+    </nav>
+
+  </header>
+
+  <main>
+
+    <!--memu hambúrguer-->
+
+    <div class="mobile-menu">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+      <div class="line4"></div>
+    </div>
+    <ul class="nav-list">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="https://maps.app.goo.gl/pyWLhvAabEpSeJSHA" target="_blank">Loja Física</a></li>
+      <li><a href="creditos.html">Equipe</a></li>  
+    </ul>
+
+    <hr>
+
+    <!--nome-->
+
+    <section>
+      <h1>Sua <font color="#eaa034">&nbspP</font>etShop + Confiável!!!</h1>
+    </section>
+
+  <!--carrossel produtos--> 
+
+ 
+<div id="carouselExampleControls" class="carousel">
+  <div class="carousel-inner">
+      <div class="carousel-item active">
+          <div class="card">
+            <img src="imagens/produtos/areiapet1.png" class="d-block w-100" alt="Caixa de areia para gatos">
+              <div class="card-body">
+                  <h5 class="card-title">Card title 1</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                      card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+          </div>
+      </div>
+      <div class="carousel-item">
+          <div class="card">
+            <img src="imagens/produtos/camapet.jpg" class="d-block w-100" alt="Cama para pets">
+              <div class="card-body">
+                  <h5 class="card-title">Card title 2</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                      card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+          </div>
+      </div>
+      <div class="carousel-item">
+          <div class="card">
+            <img src="imagens/produtos/colarpet.jpg" class="d-block w-100" alt="Coleira para pets">
+              <div class="card-body">
+                  <h5 class="card-title">Card title 3</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                      card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+          </div>
+      </div>
+      <div class="carousel-item">
+          <div class="card">
+            <img src="imagens/produtos/comidapet.png" class="d-block w-100" alt="Ração para cachorro">
+              <div class="card-body">
+                  <h5 class="card-title">Card title 4</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                      card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+          </div>
+      </div>
+      <div class="carousel-item">
+          <div class="card">
+            <img src="imagens/produtos/tigelapet1.jpg" class="d-block w-100" alt="Tigela para ração para pet">
+              <div class="card-body">
+                  <h5 class="card-title">Card title 5</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                      card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+          </div>
+      </div>
+      <div class="carousel-item">
+          <div class="card">
+            <img src="imagens/produtos/transportepet.jpg" class="d-block w-100" alt="Caixa de tranposte para pet">
+              <div class="card-body">
+                  <h5 class="card-title">Card title 6</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                      card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+          </div>
+      </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
 <script>
-const prevButton = document.querySelector('.prev');
-const nextButton = document.querySelector('.prox');
-const carouselImages = document.querySelector('.produtos-imagens');
-const images = document.querySelectorAll('.produto');
-const totalImages = images.length;
-
-let currentIndex = 0;
-let isTransitioning = false;
-let imageWidth = document.querySelector('.produto').clientWidth;
-
-const firstImageClone = images[0].cloneNode(true);
-const lastImageClone = images[totalImages - 1].cloneNode(true);
-
-carouselImages.appendChild(firstImageClone); 
-carouselImages.insertBefore(lastImageClone, images[0]); 
+  document.addEventListener('DOMContentLoaded', function () {
+    let multipleCardCarousel = document.querySelector("#carouselExampleControls");
 
 
-window.addEventListener('resize', () => {
-    imageWidth = document.querySelector('.produto').clientWidth;
-    carouselImages.style.transition = 'none';
-    carouselImages.style.transform = `translateX(-${(currentIndex + 1) * imageWidth}px)`;
-});
+    if (window.matchMedia("(min-width: 768px)").matches) {
+      let carousel = new bootstrap.Carousel(multipleCardCarousel, {
+        interval: false, // Disable automatic sliding
+        wrap: false, // Prevent wrapping at the end
+      });
 
 
-function updateCarousel() {
-    if (isTransitioning) return;
-    isTransitioning = true;
-    
-    carouselImages.style.transition = 'transform 0.5s ease-in-out';
-    carouselImages.style.transform = `translateX(-${(currentIndex + 0) * imageWidth}px)`;
-    
-    carouselImages.addEventListener('transitionend', () => {
-        isTransitioning = false;
+      let carouselWidth = document.querySelector(".carousel-inner").scrollWidth;
+      let cardWidth = document.querySelector(".carousel-item").offsetWidth;
+      let scrollPosition = 0;
 
 
-        if (currentIndex === totalImages) {
-            currentIndex = 0;
-            carouselImages.style.transition = 'none'; // Remove a transição para evitar o salto
-            carouselImages.style.transform = `translateX(-${(currentIndex + 0) * imageWidth}px)`;
+      document.querySelector("#carouselExampleControls .carousel-control-next").addEventListener("click", function () {
+        if (scrollPosition < carouselWidth - cardWidth * 4) {
+          scrollPosition += cardWidth;
+          document.querySelector("#carouselExampleControls .carousel-inner").scroll({ left: scrollPosition, behavior: 'smooth' });
         }
-        
-        if (currentIndex === -1) {
-            currentIndex = totalImages;
-            carouselImages.style.transition = 'none'; // Remove a transição para evitar o salto
-            carouselImages.style.transform = `translateX(-${(currentIndex + 2) * imageWidth}px)`;
+      });
+
+
+      document.querySelector("#carouselExampleControls .carousel-control-prev").addEventListener("click", function () {
+        if (scrollPosition > 0) {
+          scrollPosition -= cardWidth;
+          document.querySelector("#carouselExampleControls .carousel-inner").scroll({ left: scrollPosition, behavior: 'smooth' });
         }
-    }, { once: true });
-}
-
-
-nextButton.addEventListener('click', () => {
-    if (isTransitioning) return;
-    currentIndex++;
-    
-    if (currentIndex > totalImages) { 
-        currentIndex = totalImages;
+      });
+    } else {
+      multipleCardCarousel.classList.add("slide");
     }
-    
-    updateCarousel();
-});
-
-
-prevButton.addEventListener('click', () => {
-    if (isTransitioning) return;
-    currentIndex--;
-    
-    if (currentIndex < -1) { 
-        currentIndex = -1;
-    }
-    
-    updateCarousel();
-});
-
+  });
 </script>
 
-
+              
 </html>
